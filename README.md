@@ -1,6 +1,15 @@
-# React Counter App
+# Buddies Barbershop
 
-Простое React-приложение на Vite со счетчиком.
+Статическое React-приложение для сайта-визитки барбершопа. Проект сделан на React, TypeScript и Vite, не использует бэкенд, CMS, базу данных, авторизацию или оплату на сайте.
+
+## Возможности
+
+- одностраничный сайт с якорными секциями;
+- тёмный премиальный дизайн с акцентным золотым цветом;
+- блоки: Header, Hero, О нас, Услуги, Мастера, Галерея, Академия, Контакты, Footer;
+- данные вынесены в `src/data`;
+- адаптивная вёрстка для мобильных устройств;
+- готовность к сборке в папку `dist`.
 
 ## Локальный запуск
 
@@ -15,20 +24,43 @@ npm run dev
 npm run build
 ```
 
-## Деплой на GitHub Pages
+После сборки готовые файлы будут находиться в папке `dist`.
 
-1. Создайте репозиторий на GitHub и отправьте проект:
+## Предпросмотр сборки
 
 ```bash
-git init
-git add .
-git commit -m "Create React counter app"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
-git push -u origin main
+npm run preview
 ```
 
-2. Опубликуйте приложение в ветку `gh-pages`:
+## GitHub Pages
+
+В `vite.config.ts` уже указан пример для репозитория `test-react-app`:
+
+```ts
+base: '/test-react-app/'
+```
+
+Если репозиторий называется иначе, замените `barbershop-site` на имя своего репозитория:
+
+```ts
+base: '/your-repository-name/'
+```
+
+Если используется свой домен, укажите:
+
+```ts
+base: '/'
+```
+
+## Деплой через gh-pages
+
+1. Установите зависимости:
+
+```bash
+npm install
+```
+
+2. Соберите и опубликуйте проект:
 
 ```bash
 npm run deploy
@@ -40,4 +72,11 @@ npm run deploy
 - Branch: `gh-pages`
 - Folder: `/ (root)`
 
-После сохранения GitHub покажет ссылку на опубликованное приложение.
+## Структура данных
+
+- `src/data/services.ts` - услуги и цены;
+- `src/data/masters.ts` - мастера;
+- `src/data/courses.ts` - курсы академии;
+- `src/data/gallery.ts` - элементы галереи.
+
+Кнопки записи ведут на внешний URL `https://example.com/booking`. Его можно заменить в `src/App.tsx`.
